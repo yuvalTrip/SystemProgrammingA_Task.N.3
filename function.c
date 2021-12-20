@@ -27,7 +27,6 @@ bool contain(char *word, char letter)
 void Func3(char *word, char *txt)
 {
     int flag = 0;
-    char sAns[TXT + 1]; //define new array in size of txt (in max)
     int Counter = 0;
     //char destination[TXT];
     //char FinalsAns[TXT + 1]; //define new array in size of txt (in max)
@@ -35,9 +34,14 @@ void Func3(char *word, char *txt)
     printf("Anagram Sequences: ");
     for (int i = 0; i < strlen(txt); i++)
     {
+        char sAns[TXT +1]=""; //define new array in size of txt (in max)
         //char ch_temp = txt[i];
         Counter = 0;
         int k;
+        if (isalpha(txt[i]) == 0)
+        {
+            continue;
+        }
         for (int element = 0; element < strlen(word); element++)
         {
             AlreadyBeen[element] = 0; //initial the array as we didnt check any letter
@@ -91,6 +95,10 @@ void Func2(char *word, char *txt)
         //char ch_temp = txt[i];
         Counter = 0;
         int k;
+        if (isalpha(txt[i]) == 0)
+        {
+            continue;
+        }
         for (int element = 0; element < strlen(funcToAtbash(word)); element++)
         {
             AlreadyBeen[element] = 0; //initial the array as we didnt check any letter
